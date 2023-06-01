@@ -18,8 +18,8 @@ func TestGetAssetIssueById(t *testing.T) {
 func TestBroadcastTrc10(t *testing.T) {
 	// tx参数
 	req := &ReqBuildTrc10{
-		OwnerAddress: "TXaevvPuifR6TxrDwxK3XA4AN86LGaBHzS",
-		ToAddress:    "TWUjvkTK4aaMZfMNnwuko6rJga3dE5C1Ls",
+		OwnerAddress: "",
+		ToAddress:    "",
 		AssetName:    "1000016", //   string `json:"asset_name"`
 		Amount:       2233000,
 		Visible:      true,
@@ -32,7 +32,7 @@ func TestBroadcastTrc10(t *testing.T) {
 	t.Log("广播前hash：", rep.TxID)
 
 	rep.Signature, _ = apiEngine.signHashTx(rep.TxID,
-		"9820d28c0807f8bed6814dec7023f2efabef517e345aa67a018f2d510c6ff7af")
+		"")
 	//rep.Signature = append(rep.Signature, signature)
 	rep.Visible = true
 	hash, err := apiEngine.BroadcastTx(rep)

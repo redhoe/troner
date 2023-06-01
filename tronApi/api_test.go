@@ -13,7 +13,11 @@ var apiUrlNile = "https://api.nileex.io"
 
 func init() {
 	log, _ := zap.NewDevelopment()
-	apiEngine = NewTronApiEngine("test", apiUrlNile, log)
+	apiEngine = NewTronApiEngine(apiUrlNile, "", log)
+}
+
+func TestGetAccount(t *testing.T) {
+	t.Log(apiEngine.GetAccount("TXaevvPuifR6TxrDwxK3XA4AN86LGaBHzS"))
 }
 
 // 构建交易

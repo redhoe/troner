@@ -8,7 +8,7 @@ import (
 )
 
 func TestTrc20Balance(t *testing.T) {
-	amount, err := apiEngine.Trc20Balance("TYn62fLYjAW7azvkDeMQx9CVV5AqnFUDCH", "TNuoKL1ni8aoshfFL1ASca1Gou9RXwAzfn")
+	amount, err := apiEngine.Trc20Balance("", "")
 	if err != nil {
 		t.Log(err)
 	}
@@ -39,7 +39,7 @@ func TestHexTo10(t *testing.T) {
 }
 
 func TestEncodeBalanceParams(t *testing.T) {
-	base58address := "TXaevvPuifR6TxrDwxK3XA4AN86LGaBHzS"
+	base58address := ""
 	t.Log(apiEngine.encodeBalanceParams(base58address))
 }
 
@@ -49,7 +49,7 @@ func TestParseTRC20NumericProperty(t *testing.T) {
 }
 
 func TestTrc20Info(t *testing.T) {
-	trc20Info, err := apiEngine.Trc20Info("TXLAQ63Xg1NAzckPwKHvzw7CSEmLMEqcdj")
+	trc20Info, err := apiEngine.Trc20Info("")
 	if err != nil {
 		t.Log(err)
 	}
@@ -59,8 +59,8 @@ func TestTrc20Info(t *testing.T) {
 //Trc20Gas
 
 func TestTrc20Gas(t *testing.T) {
-	from := "TXaevvPuifR6TxrDwxK3XA4AN86LGaBHzS"
-	to := "TYn62fLYjAW7azvkDeMQx9CVV5AqnFUDCH"
+	from := ""
+	to := ""
 	contract := "TNuoKL1ni8aoshfFL1ASca1Gou9RXwAzfn"
 	amount := big.NewInt(12345678)
 	// tx参数
@@ -80,7 +80,7 @@ func TestTrc20Gas(t *testing.T) {
 	//t.Log(fmt.Sprintf("%+v", rep))
 	t.Log("广播前hash：", rep.Transaction.TxID)
 	rep.Transaction.Signature, err = apiEngine.signHashTx(rep.Transaction.TxID,
-		"9820d28c0807f8bed6814dec7023f2efabef517e345aa67a018f2d510c6ff7af")
+		"")
 
 	gas, err := apiEngine.Trc20Gas(
 		from,
